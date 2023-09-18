@@ -1,5 +1,16 @@
 #!/bin/bash
-printf "%o\n" $(( $((5#$(echo $WATER | tr water 01234))) + 
-$((5#$(echo $STIR | tr stir. 01234))) )) | tr 01234567 bestchol
+
+# Check if the WATER and STIR variables are set
+if [ -z "$WATER" ] || [ -z "$STIR" ]; then
+  echo "WATER and/or STIR variables are not set."
+  exit 1
+fi
+
+# Perform addition and store the result in a variable
+result=$((WATER + STIR))
+
+# Print the result
+echo "The sum of WATER and STIR is: $result"
+
 
 
